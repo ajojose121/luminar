@@ -1,0 +1,29 @@
+package testNG;
+
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class Yatralinkcount1 
+{
+	WebDriver ob; 
+	@Before
+	public void setup()
+	{
+		ob=new ChromeDriver();
+		ob.get("https://www.yatra.com/");
+		ob.manage().window().maximize();
+	}
+	@Test
+	public void test()
+	{
+		List<WebElement> links=ob.findElements(By.tagName("a"));
+		System.out.println("total number of links in yatra.com =  "+links.size());
+	}
+}
